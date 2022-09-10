@@ -11,17 +11,19 @@ class MyApp extends StatelessWidget {
       title: 'DeliMeals',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        fontFamily: 'Raleway',
+        fontFamily: GoogleFonts.quicksand().toString(),
         secondaryHeaderColor: Colors.amber,
         canvasColor: const Color.fromRGBO(255, 254, 252, 1),
-        textTheme: const TextTheme(
-          headline1: TextStyle(
-            fontFamily: 'Raleway',
+        textTheme: TextTheme(
+          headline1: const TextStyle(
+            fontFamily: 'Quicksand',
             fontSize: 25,
             fontWeight: FontWeight.bold,
           ),
           bodyText1: TextStyle(
-            fontFamily: "RobotoCondensed",
+            fontFamily:
+                GoogleFonts.quicksand(fontWeight: FontWeight.bold, fontSize: 15)
+                    .fontFamily,
             fontSize: 18,
           ),
         ),

@@ -31,7 +31,10 @@ class CategoryItem extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(title, style: Theme.of(context).textTheme.bodyText1),
+          Text(
+            title,
+            style: Theme.of(context).textTheme.bodyText1,
+          ),
         ],
       ),
     );
