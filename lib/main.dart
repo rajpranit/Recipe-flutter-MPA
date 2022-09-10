@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
           ),
           bodyText1: TextStyle(
             fontFamily:
-                GoogleFonts.quicksand(fontWeight: FontWeight.bold, fontSize: 15)
+                GoogleFonts.quicksand(fontWeight: FontWeight.w500, fontSize: 15)
                     .fontFamily,
             fontSize: 18,
           ),
