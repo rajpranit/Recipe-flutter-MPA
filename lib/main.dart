@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recipe/screens/categories_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
+import './screens/categories_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,7 +9,23 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'DeliMeals',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        fontFamily: 'Raleway',
+        secondaryHeaderColor: Colors.amber,
+        canvasColor: const Color.fromRGBO(255, 254, 252, 1),
+        textTheme: const TextTheme(
+          headline1: TextStyle(
+            fontFamily: 'Raleway',
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
+          bodyText1: TextStyle(
+            fontFamily: "RobotoCondensed",
+            fontSize: 18,
+          ),
+        ),
+      ),
       home: CategoriesScreen(),
     );
   }

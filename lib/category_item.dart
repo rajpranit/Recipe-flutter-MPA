@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CategoryItem extends StatelessWidget {
   final String title;
@@ -11,9 +13,8 @@ class CategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-      padding:
-          const EdgeInsets.only(left: 60, right: 40, top: 120, bottom: 100),
+      // margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+      transformAlignment: Alignment.center,
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
@@ -27,7 +28,12 @@ class CategoryItem extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(15),
       ),
-      child: Text(title),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(title, style: Theme.of(context).textTheme.bodyText1),
+        ],
+      ),
     );
   }
 }
