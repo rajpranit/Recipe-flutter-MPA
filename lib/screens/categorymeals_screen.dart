@@ -1,18 +1,17 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class CategoryMealsScreen extends StatelessWidget {
-  const CategoryMealsScreen({Key key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    final routeArgs =
+        ModalRoute.of(context).settings.arguments as Map<String, String>;
+    final title = routeArgs['title'];
+    final id = routeArgs['id'];
+
     return Scaffold(
-      appBar: AppBar(title: const Text('Category Meals')),
-      body: const Center(
-        child: Text('Category Meals'),
+      appBar: AppBar(title: Text(title)),
+      body: Center(
+        child: Text('Recipe for $title dishes'),
       ),
     );
   }
