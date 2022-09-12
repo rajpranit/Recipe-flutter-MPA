@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../dummy_data.dart';
-import '../category_item.dart';
+import '../widgets/category_item.dart';
 
 class CategoriesScreen extends StatelessWidget {
   @override
@@ -11,6 +11,7 @@ class CategoriesScreen extends StatelessWidget {
           'Categories',
           style: Theme.of(context).textTheme.headline1,
         ),
+        centerTitle: true,
       ),
       body: GridView(
         padding: EdgeInsets.all(5),

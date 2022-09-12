@@ -12,13 +12,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'DeliMeals',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.pink,
         fontFamily: GoogleFonts.quicksand().toString(),
         secondaryHeaderColor: Colors.amber,
         canvasColor: const Color.fromRGBO(255, 254, 252, 1),
         textTheme: TextTheme(
-          headline1: const TextStyle(
-            fontFamily: 'Quicksand',
+          headline1: TextStyle(
+            fontFamily: GoogleFonts.merriweatherSans().toString(),
+            color: Colors.white,
             fontSize: 25,
             fontWeight: FontWeight.bold,
           ),
