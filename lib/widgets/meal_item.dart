@@ -21,10 +21,12 @@ class MealItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    void mealSelector() {}
+    void mealSelector(BuildContext context) {
+      Navigator.of(context).pushNamed('/meal-detail', arguments: id);
+    }
 
     return InkWell(
-      onTap: mealSelector,
+      onTap: () => mealSelector(context),
       borderRadius: BorderRadius.circular(15),
       child: Card(
         shape: RoundedRectangleBorder(
@@ -48,13 +50,64 @@ class MealItem extends StatelessWidget {
                 ),
               ),
               Positioned(
-                child: ListTile(
-                  leading: Text(
-                    duration.toString(),
+                bottom: 20,
+                right: 5,
+                child: Container(
+                  color: Colors.black45,
+                  width: 300,
+                  child: Text(
+                    title.toString(),
+                    style: const TextStyle(
+                      fontSize: 25,
+                      color: Colors.white,
+                    ),
+                    softWrap: true,
+                    overflow: TextOverflow.fade,
                   ),
                 ),
               )
             ],
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Row(
+                  children: [
+                    const Icon(Icons.schedule_outlined),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      '$duration min',
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    const Icon(Icons.bar_chart),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      '${complexity.toString().split('.').last}',
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    const Icon(Icons.attach_money),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      '${affordability.toString().split('.').last}',
+                    ),
+                  ],
+                )
+              ],
+            ),
           )
         ]),
       ),

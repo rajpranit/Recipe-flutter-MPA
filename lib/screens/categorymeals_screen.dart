@@ -14,7 +14,6 @@ class CategoryMealsScreen extends StatelessWidget {
     final categoryMeals = DUMMY_MEALS.where((meal) {
       return meal.categories.contains(id);
     }).toList();
-    print(context);
 
     return Scaffold(
       appBar: AppBar(
