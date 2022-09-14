@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:recipe/screens/categorymeals_screen.dart';
-import 'package:recipe/screens/meal_detail_screen.dart';
-
-import './screens/categories_screen.dart';
+import '../screens/categorymeals_screen.dart';
+import '../screens/meal_detail_screen.dart';
+import '../screens/tabbar_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.pink,
         fontFamily: GoogleFonts.quicksand().toString(),
-        secondaryHeaderColor: Colors.amber,
+        scaffoldBackgroundColor: Colors.amber.shade100,
         canvasColor: const Color.fromRGBO(255, 254, 252, 1),
         textTheme: TextTheme(
           headline1: TextStyle(
@@ -33,14 +32,17 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: CategoriesScreen(),
+      // home: CategoriesScreen(),
       routes: {
+        '/': (ctx) {
+          return const TabsBarScreen();
+        },
         '/category-meals': (context) {
           return CategoryMealsScreen();
         },
         '/meal-detail': (context) {
-          return MealDetail();
-        }
+          return const MealDetail();
+        },
       },
     );
   }
