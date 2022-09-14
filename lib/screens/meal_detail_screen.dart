@@ -38,7 +38,7 @@ class MealDetail extends StatelessWidget {
               Radius.circular(5),
             ),
           ),
-          height: 250,
+          height: 200,
           width: 300,
           margin: EdgeInsets.all(10),
           padding: EdgeInsets.all(10),
