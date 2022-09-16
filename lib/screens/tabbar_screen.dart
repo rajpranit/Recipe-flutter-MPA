@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/main_drawer.dart';
 import './categories_screen.dart';
 import './favourites_screen.dart';
 
@@ -28,19 +29,20 @@ class _TabsBarScreenState extends State<TabsBarScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(widgetOptions[_selectedIndex]['title'])),
+      drawer: MainDrawer(),
       body: widgetOptions[_selectedIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Theme.of(context).primaryColor,
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.category),
+            icon: const Icon(Icons.category),
             label: 'Category',
-            backgroundColor: Colors.pink,
+            backgroundColor: Theme.of(context).primaryColor,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_outline),
+            icon: const Icon(Icons.favorite_outline),
             label: 'Favourites',
-            backgroundColor: Colors.pink,
+            backgroundColor: Theme.of(context).primaryColor,
           ),
         ],
         selectedItemColor: Colors.white,

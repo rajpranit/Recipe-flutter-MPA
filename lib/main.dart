@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../screens/filter_setting.dart';
 import '../screens/categorymeals_screen.dart';
 import '../screens/meal_detail_screen.dart';
 import '../screens/tabbar_screen.dart';
@@ -43,6 +44,9 @@ class MyApp extends StatelessWidget {
         '/meal-detail': (context) {
           return const MealDetail();
         },
+        '/filter-setting': (context) {
+          return const FilterSetting();
+        }
       },
     );
   }
