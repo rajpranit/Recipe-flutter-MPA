@@ -32,7 +32,7 @@ class _TabsBarScreenState extends State<TabsBarScreen> {
       drawer: MainDrawer(),
       body: widgetOptions[_selectedIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: Colors.amber,
         items: [
           BottomNavigationBarItem(
             icon: const Icon(Icons.category),
@@ -45,7 +45,8 @@ class _TabsBarScreenState extends State<TabsBarScreen> {
             backgroundColor: Theme.of(context).primaryColor,
           ),
         ],
-        selectedItemColor: Colors.white,
+        selectedItemColor: Colors.amber,
+        showUnselectedLabels: true,
         onTap: _selectWidget,
         currentIndex: _selectedIndex,
         type: BottomNavigationBarType.shifting,

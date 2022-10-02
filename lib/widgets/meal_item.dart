@@ -9,6 +9,7 @@ class MealItem extends StatelessWidget {
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
+  final Function removeItem;
 
   const MealItem({
     @required this.id,
@@ -17,12 +18,15 @@ class MealItem extends StatelessWidget {
     @required this.duration,
     @required this.complexity,
     @required this.affordability,
+    @required this.removeItem,
   });
 
   @override
   Widget build(BuildContext context) {
     void mealSelector(BuildContext context) {
-      Navigator.of(context).pushNamed('/meal-detail', arguments: id);
+      Navigator.of(context)
+          .pushNamed('/meal-detail', arguments: id)
+          .then((value) => removeItem(value));
     }
 
     return InkWell(

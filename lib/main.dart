@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import './dummy_data.dart';
+import './models/meal.dart';
 import '../screens/filter_setting.dart';
 import '../screens/categorymeals_screen.dart';
 import '../screens/meal_detail_screen.dart';
@@ -8,7 +10,44 @@ import '../screens/tabbar_screen.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  Map<String, bool> _filters = {
+    "gluten-free": false,
+    'vegan': false,
+    'vegetarian': false,
+    'lactose-free': false,
+  };
+
+  List<Meal> _availableMeals = DUMMY_MEALS;
+
+  void _setFilters(Map<String, bool> filterData) {
+    setState(() {
+      _filters = filterData;
+
+      _availableMeals = DUMMY_MEALS.where((meal) {
+        if (filterData['gluten-free'] && !meal.isGlutenFree) {
+          return false;
+        }
+        if (filterData['vegan'] && !meal.isVegan) {
+          return false;
+        }
+        if (filterData['vegetarian'] && !meal.isVegetarian) {
+          return false;
+        }
+        if (filterData['lactose-free'] && !meal.isLactoseFree) {
+          return false;
+        }
+
+        return true;
+      }).toList();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -39,13 +78,13 @@ class MyApp extends StatelessWidget {
           return const TabsBarScreen();
         },
         '/category-meals': (context) {
-          return CategoryMealsScreen();
+          return CategoryMealsScreen(_availableMeals);
         },
         '/meal-detail': (context) {
           return const MealDetail();
         },
         '/filter-setting': (context) {
-          return const FilterSetting();
+          return FilterSetting(_filters, _setFilters);
         }
       },
     );

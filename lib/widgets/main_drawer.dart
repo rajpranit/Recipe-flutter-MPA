@@ -45,10 +45,10 @@ class MainDrawer extends StatelessWidget {
             height: 50,
           ),
           drawerList('Meals', Icons.restaurant, () {
-            Navigator.of(context).pushNamed('/');
+            Navigator.of(context).pushReplacementNamed('/');
           }),
           drawerList('Filters', Icons.settings, () {
-            Navigator.of(context).pushNamed('/filter-setting');
+            Navigator.of(context).pushReplacementNamed('/filter-setting');
           })
         ],
       ),
