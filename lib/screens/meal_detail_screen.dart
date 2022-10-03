@@ -5,7 +5,10 @@ import 'package:favorite_button/favorite_button.dart';
 import '../dummy_data.dart';
 
 class MealDetail extends StatefulWidget {
-  const MealDetail();
+  Function toggleFavorite;
+  Function isFavorite;
+
+  MealDetail(this.toggleFavorite, this.isFavorite);
 
   @override
   State<MealDetail> createState() => _MealDetailState();
@@ -127,8 +130,8 @@ class _MealDetailState extends State<MealDetail> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.delete),
-        onPressed: () => popFunciton(),
+        child: Icon(widget.isFavorite(mealid) ? Icons.star : Icons.star_border),
+        onPressed: () => widget.toggleFavorite(mealid),
       ),
     );
   }
